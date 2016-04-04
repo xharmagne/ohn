@@ -6,16 +6,6 @@
 
   <section class="au-animate">
 
-  <!-- TITLE -->
-  <div class="title-row">
-      <div class="row">
-          <div class="small-12 small-centered columns">
-              <a name="home"></a>
-              <h1><a href="/#/" target="_self"><img class="ohn-logo" src="img/ohn-logo.svg" alt="OHN14" /></a></h1>
-          </div>
-      </div>
-  </div>
-
 
   <!-- HEADER -->
   <div class="header-row">
@@ -88,7 +78,7 @@
           </thead>
           <tbody class="au-stagger">
               <tr class="registrant-name au-animate" repeat.for="registrant of registrants | filter:filterGamertag:filterRegion:filterPassType:filterGame">
-                  <td><div style="font-size: 1.1rem;">${registrant.gamertag}</div></td>
+                  <td><div class="gamertag">${registrant.gamertag}</div></td>
                   <td><div>${registrant.region}</div></td>
                   <td><div>${registrant.passType}</div></td>
                   <td>
@@ -100,7 +90,7 @@
                     </div>
                   </td>
               </tr>
-              <tr class="registrants-sum">
+              <tr class="registrants-sum grand-total">
                 <td colspan="4" class="text-center"><span style="font-weight:bold">${registrants | filterCount:filterGamertag:filterRegion:filterPassType:filterGame}</span> of <span style="font-weight:bold">${registrants | listCount}</span> registrants</td>
               </tr>
           </tbody>

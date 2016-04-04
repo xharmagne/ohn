@@ -1,7 +1,18 @@
 <template>
   <require from="nav-bar.html"></require>
 
-  <nav-bar router.bind="router"></nav-bar>
+  <!--<nav-bar router.bind="router"></nav-bar>-->
+
+  <!-- TITLE -->
+  <div class="title-row">
+      <div class="row">
+          <div id="site-title" class="small-12 small-centered columns">
+              <a name="home"></a>
+              <h1><a href="/#/" target="_self"><img class="ohn-logo" src="dist/img/ohn-logo.svg" alt="OHN14" /></a></h1>
+          </div>
+      </div>
+  </div>
+
 
   <div class="page-host">
     <router-view></router-view>

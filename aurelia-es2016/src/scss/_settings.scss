@@ -56,6 +56,7 @@ $ozhadou-teal: #38ADCE;
 $ozhadou-dark-teal: #1c94c4;
 $ozhadou-light-grey: #a6a8ab;
 $ozhadou-dark-grey: #414142;
+$ozhadou-blue-grey: #5b7092;
 
 
 $global-font-size: 100%;
@@ -75,7 +76,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: Raleway, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -116,7 +117,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: Cabin, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;

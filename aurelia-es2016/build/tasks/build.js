@@ -45,10 +45,15 @@ gulp.task('build-html', function() {
 
 // copies font files to the output directory
 gulp.task('build-font', function() {
-  return gulp.src(paths.font)
+  return gulp.src([paths.font], {base: paths.root})
     .pipe(gulp.dest(paths.output));
 });
 
+// copies img files to the output directory
+gulp.task('build-image', function() {
+  return gulp.src([paths.image], {base: paths.root})
+    .pipe(gulp.dest(paths.output));
+});
 
 // build sass
 gulp.task('build-sass', function () {
@@ -61,7 +66,8 @@ gulp.task('build-sass', function () {
           errLogToConsole: true
       }).on('error', sass.logError))
       .pipe(minifyCSS())
-      .pipe(gulp.dest(paths.output));
+      .pipe(gulp.dest(paths.output))
+      .pipe(browserSync.stream());
 });
 
 
@@ -80,7 +86,7 @@ gulp.task('build-css', function() {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-cssframework', 'build-sass', 'build-html', 'build-css', 'build-font'],
+    ['build-system', 'build-cssframework', 'build-sass', 'build-html', 'build-css', 'build-font', 'build-image'],
     callback
   );
 });
