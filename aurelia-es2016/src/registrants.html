@@ -1,17 +1,115 @@
 <template>
+  <require from="./filter"></require>
+  <require from="./filter-count"></require>
+  <require from="./list-count"></require>
+
+
   <section class="au-animate">
-    <h2>${heading}</h2>
-    <div>
-      <div class="col-md-2">
-        <ul class="well nav nav-pills nav-stacked">
-          <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-            <a href.bind="row.href">${row.title}</a>
-          </li>
-        </ul>
+
+  <!-- TITLE -->
+  <div class="title-row">
+      <div class="row">
+          <div class="small-12 small-centered columns">
+              <a name="home"></a>
+              <h1><a href="/#/" target="_self"><img class="ohn-logo" src="img/ohn-logo.svg" alt="OHN14" /></a></h1>
+          </div>
       </div>
-      <div class="col-md-10" style="padding: 0">
-        <router-view></router-view>
+  </div>
+
+
+  <!-- HEADER -->
+  <div class="header-row">
+      <div class="row">
+          <div class="small-12 small-centered text-center columns">
+              <h3 class="text-center">${heading}</h3>
+          </div>
+      </div>
+  </div>
+
+
+  <!-- OPTIONS -->
+  <div class="toggle-row">
+    <div class="row">
+        <div class="small-12 text-center columns">
+          <input id="chkShowFilterOptions" type="checkbox" checked.bind="showFilterOptions" class="hidden-accessible">
+          <label for="chkShowFilterOptions">
+              <span if.bind="showFilterOptions">Hide filter options</span>
+              <span if.bind="!showFilterOptions">Show filter options</span>
+          </label>
+        </div>
+      </div>
+  </div>
+
+  <div class="options-row">
+    <div  class="filter-options row"  style="max-width:53rem;">
+      <div class="au-animate options-container small-12 columns" if.bind="showFilterOptions">
+        <div class="row">
+          <div class="option-column medium-3 columns">
+            <label for="txtGamertag">Gamertag</label>
+            <input id="txtGamertag" value.bind="filterGamertag" type="text" />
+          </div>
+          <div class="option-column medium-3 columns">
+            <label for="selRegion">Region</label>
+            <select id="selRegion" value.bind="filterRegion">
+                  <option repeat.for="option of regions" value.bind="option.value">${option.name}</option>
+            </select>
+          </div>
+          <div class="option-column medium-3 columns">
+            <label for="selPassType">Pass type</label>
+            <select id="selPassType" value.bind="filterPassType">
+                  <option repeat.for="option of passTypes" value.bind="option.value">${option.name}</option>
+            </select>
+          </div>
+          <div class="option-column medium-3 columns">
+            <label for="selGames">Game</label>
+            <select id="selGames" value.bind="filterGame">
+                  <option repeat.for="option of games" value.bind="option.value">${option.name}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- RESULTS -->
+  <div class="results-row">
+    <div class="row">
+      <div class="small-12 columns">
+        <table align="center">
+          <thead>
+              <tr>
+                  <td>Gamertag</td>
+                  <td>Region</td>
+                  <td>Pass type</td>
+                  <td>Games</td>
+              </tr>
+          </thead>
+          <tbody class="au-stagger">
+              <tr class="registrant-name au-animate" repeat.for="registrant of registrants | filter:filterGamertag:filterRegion:filterPassType:filterGame">
+                  <td><div style="font-size: 1.1rem;">${registrant.gamertag}</div></td>
+                  <td><div>${registrant.region}</div></td>
+                  <td><div>${registrant.passType}</div></td>
+                  <td>
+                    <div>
+                      <span if.bind="registrant.games.sfRegistered">SFV </span>
+                      <span if.bind="registrant.games.tkRegistered">T7 </span>
+                      <span if.bind="registrant.games.mkRegistered">MKX </span>
+                      <span if.bind="registrant.games.a1Registered">VF5FS </span>
+                    </div>
+                  </td>
+              </tr>
+              <tr class="registrants-sum">
+                <td colspan="4" class="text-center"><span style="font-weight:bold">${registrants | filterCount:filterGamertag:filterRegion:filterPassType:filterGame}</span> of <span style="font-weight:bold">${registrants | listCount}</span> registrants</td>
+              </tr>
+          </tbody>
+
+
+        </table>
       </div>
     </div>
+  </div>
+
   </section>
 </template>

@@ -45,15 +45,28 @@
 // 1. Global
 // ---------
 
+
+//// OzHadou Colors ///////////////////////////////////////
+
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+
+$ozhadou-blue: #1B75BA;
+$ozhadou-teal: #38ADCE;
+$ozhadou-dark-teal: #1c94c4;
+$ozhadou-light-grey: #a6a8ab;
+$ozhadou-dark-grey: #414142;
+
+
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #2199e8,
-  secondary: #777,
+  primary: $ozhadou-blue,
+  secondary: $ozhadou-light-grey,
   success: #3adb76,
   warning: #ffae00,
-  alert: #ec5840,
+  alert: #c72a0e,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -72,6 +85,7 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
+
 
 @include add-foundation-colors;
 

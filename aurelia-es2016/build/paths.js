@@ -7,6 +7,7 @@ module.exports = {
   source: appRoot + '**/*.js',
   html: appRoot + '**/*.html',
   css: appRoot + '**/*.css',
+  font: appRoot + 'fonts',
   style: 'styles/**/*.css',
   cssFramework: 'jspm_packages/github/zurb/foundation-sites*/dist/foundation.js',
   sass: appRoot + 'scss/app.scss',

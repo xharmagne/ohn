@@ -43,6 +43,12 @@ gulp.task('build-html', function() {
     .pipe(gulp.dest(paths.output));
 });
 
+// copies font files to the output directory
+gulp.task('build-font', function() {
+  return gulp.src(paths.font)
+    .pipe(gulp.dest(paths.output));
+});
+
 
 // build sass
 gulp.task('build-sass', function () {
@@ -74,7 +80,7 @@ gulp.task('build-css', function() {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-cssframework', 'build-sass', 'build-html', 'build-css'],
+    ['build-system', 'build-cssframework', 'build-sass', 'build-html', 'build-css', 'build-font'],
     callback
   );
 });
