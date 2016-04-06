@@ -8,10 +8,7 @@ import {RegistrantService}       from './registrant.service';
 
 @Component({
     selector: 'my-app',
-    template: `
-      <h1>Registrants</h1>
-      <registrant-list></registrant-list>
-    `,
+    templateUrl: 'app/app.component.html',
     directives:[RegistrantListComponent],
     providers: [
       HTTP_PROVIDERS,

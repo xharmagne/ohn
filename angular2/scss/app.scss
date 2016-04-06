@@ -1,0 +1,474 @@
+@charset 'utf-8';
+
+@font-face {
+	font-family: 'Raleway';
+	src: url('./fonts/Raleway-Regular.ttf');
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'Cabin';
+	src: url('./fonts/Cabin-Regular.ttf');
+	font-display: fallback;
+}
+
+
+@import 'settings';
+@import 'foundation';
+//@import 'motion-ui';
+
+@include foundation-global-styles;
+@include foundation-grid;
+// @include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+//@include foundation-flex-video;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+//@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+// @include foundation-progress-element;
+// @include foundation-meter-element;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+// @include foundation-flex-classes;
+
+//@include motion-ui-transitions;
+//@include motion-ui-animations;
+
+//// Common ///////////////////////////////////////
+
+.hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+}
+
+h3 {
+  color: $ozhadou-blue-grey;
+  padding-top: 2rem;
+}
+
+
+//// Title ///////////////////////////////////////
+#site-title {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding: 0.75rem 0;
+}
+
+#site-title h1 {
+    margin: 0;
+}
+
+.ohn-logo {
+  max-height: 5.5rem;
+}
+
+
+//// Tables ///////////////////////////////////////
+
+table {
+    border-spacing: 0;
+}
+
+table thead tr td {
+  background-color: scale-color($ozhadou-teal, $lightness:+90%);
+}
+
+table tr.totals td {
+    text-align: right;
+}
+
+table tr td.numeric {
+    text-align: right;
+}
+
+table tr.registrant-name td {
+
+    .gamertag {
+        font-size: 1.25rem;
+    }
+
+    .email {
+        font-size: 0.8rem;
+    }
+}
+
+table tr.sub-total td {
+    border-bottom: solid 2px $ozhadou-teal;
+    font-weight: bold;
+    background-color: scale-color($ozhadou-teal, $lightness:+90%);
+}
+
+table tr.grand-total td {
+    font-weight: bold;
+    color: $white;
+    background-color: $ozhadou-teal;
+}
+
+
+//// Registrants ///////////////////////////////////////
+
+.options-row {
+    margin-bottom: 1.5rem;
+}
+
+.options-container {
+    background-color: #eef0f3;
+    border-radius: 8px;
+    padding: 0rem 1.1rem 0rem 1.1rem;
+
+  label {
+      color: #0a0a0a;
+  }
+
+  .option-column {
+    margin-top: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+}
+
+tr.registrant-name  {
+
+  td {
+    margin: 0;
+    padding: 0;
+
+    div {
+      margin: 0.5rem;
+    }
+  }
+}
+
+table tr.grand-total.registrants-sum td {
+  font-weight: normal;
+  font-style: italic;
+}
+
+//// Registrants Animations ///////////////////////////////////////
+
+.options-container {
+  input {
+    transition: none;
+  }
+}
+
+.options-container.au-enter {
+    opacity: 0!important;
+    max-height: 0!important;
+    input, label, select {
+       transform:scaleY(0)!important;
+    }
+}
+
+.options-container.au-enter-active {
+      -webkit-animation: fadeIn 0.3s;
+      animation: fadeIn 0.3s;
+
+    input, label, select {
+      animation: scaleBackY 0.3s;
+    }
+}
+
+.options-container.au-leave-active {
+        -webkit-animation: fadeOut 0.3s;
+        animation: fadeOut 0.3s;
+
+      input, label, select {
+        animation: scaleDownY 0.3s;
+      }
+}
+
+tr.registrant-name.au-enter {
+  opacity: 0!important;
+  max-height: 0!important;
+    td div  {
+      opacity: 0!important;
+      max-height: 0!important;
+    }
+}
+
+tr.registrant-name.au-enter-active {
+  -webkit-animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s;
+    td div  {
+      -webkit-animation: fadeIn 0.3s;
+      animation: fadeIn 0.3s;
+    }
+}
+
+tr.registrant-name.au-leave-active {
+  -webkit-animation: fadeOut 0.3s;
+  animation: fadeOut 0.3s;
+    td div  {
+    -webkit-animation: fadeOut 0.3s;
+    animation: fadeOut 0.3s;
+  }
+}
+
+.au-stagger {
+  -webkit-animation-delay:30ms;
+  animation-delay:30ms;
+}
+
+
+/* CSS3-Animations */
+@-webkit-keyframes fadeIn {
+    0%   { opacity: 0; max-height: 0px; }
+    100% { opacity: 1;  max-height: 500px; }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; max-height: 0px; }
+  100% { opacity: 1;  max-height: 500px; }
+}
+
+@-webkit-keyframes fadeOut {
+    0%   { opacity: 1; max-height: 500px; }
+    100% { opacity: 0; max-height: 0px; }
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; max-height: 500px; }
+  100% { opacity: 0; max-height: 0px; }
+}
+
+@-webkit-keyframes growY {
+    0%   { max-height: 0px; }
+    100% { max-height: 500px; }
+}
+
+@keyframes growY {
+  0%   { max-height: 0px; }
+  100% { max-height: 500px; }
+}
+
+@-webkit-keyframes shrinkY {
+    0%   { max-height: 500px; }
+    100% { max-height: 0px; }
+}
+
+@keyframes shrinkY {
+  0%   { max-height: 500px; }
+  100% { max-height: 0px; }
+}
+
+@-webkit-keyframes scaleDownY {
+    0%   { transform: scaleY(1); }
+    100% { transform: scaleY(0); }
+}
+
+@keyframes scaleDownY {
+  0%   { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+@-webkit-keyframes scaleBackY {
+    0%   { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
+}
+
+@keyframes scaleBackY {
+  0%   { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+
+//// Loading ///////////////////////////////////////
+
+.loading {
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.75);
+    position: absolute;
+    top: 0;
+
+    .spinning-dots-spinner {
+	    width: 40px;
+	    height: 40px;
+        margin: 12.5rem auto 0 auto;
+    }
+
+    .container1 > div, .container2 > div, .container3 > div {
+        width: 12px;
+        height: 12px;
+        background-color: $ozhadou-dark-teal;
+    }
+
+    .loading-text {
+        color: $ozhadou-dark-teal;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+        text-align: center;
+    }
+}
+
+
+.spinning-dots-spinner {
+    margin: 100px auto;
+    width: 20px;
+    height: 20px;
+    position: relative
+}
+
+.container1>div,.container2>div,.container3>div {
+    width: 6px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 100%;
+    position: absolute;
+    -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+    animation: bouncedelay 1.2s infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.spinning-dots-spinner .spinner-container {
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
+.container2 {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg)
+}
+
+.container3 {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg)
+}
+
+.circle1 {
+    top: 0;
+    left: 0
+}
+
+.circle2 {
+    top: 0;
+    right: 0
+}
+
+.circle3 {
+    right: 0;
+    bottom: 0
+}
+
+.circle4 {
+    left: 0;
+    bottom: 0
+}
+
+.container2 .circle1 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s
+}
+
+.container3 .circle1 {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s
+}
+
+.container1 .circle2 {
+    -webkit-animation-delay: -.9s;
+    animation-delay: -.9s
+}
+
+.container2 .circle2 {
+    -webkit-animation-delay: -.8s;
+    animation-delay: -.8s
+}
+
+.container3 .circle2 {
+    -webkit-animation-delay: -.7s;
+    animation-delay: -.7s
+}
+
+.container1 .circle3 {
+    -webkit-animation-delay: -.6s;
+    animation-delay: -.6s
+}
+
+.container2 .circle3 {
+    -webkit-animation-delay: -.5s;
+    animation-delay: -.5s
+}
+
+.container3 .circle3 {
+    -webkit-animation-delay: -.4s;
+    animation-delay: -.4s
+}
+
+.container1 .circle4 {
+    -webkit-animation-delay: -.3s;
+    animation-delay: -.3s
+}
+
+.container2 .circle4 {
+    -webkit-animation-delay: -.2s;
+    animation-delay: -.2s
+}
+
+.container3 .circle4 {
+    -webkit-animation-delay: -.1s;
+    animation-delay: -.1s
+}
+
+@-webkit-keyframes bouncedelay {
+    0%,100%,80% {
+        -webkit-transform: scale(0)
+    }
+
+    40% {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes bouncedelay {
+    0%,100%,80% {
+        transform: scale(0);
+        -webkit-transform: scale(0)
+    }
+
+    40% {
+        transform: scale(1);
+        -webkit-transform: scale(1)
+    }
+}

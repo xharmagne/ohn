@@ -33,7 +33,7 @@ System.register(['angular2/core', 'angular2/http', './registrant-list.component'
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n      <h1>Registrants</h1>\n      <registrant-list></registrant-list>\n    ",
+                        templateUrl: 'app/app.component.html',
                         directives: [registrant_list_component_1.RegistrantListComponent],
                         providers: [
                             http_1.HTTP_PROVIDERS,
