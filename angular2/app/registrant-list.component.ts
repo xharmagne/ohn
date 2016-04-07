@@ -1,13 +1,14 @@
 import {Component, ChangeDetectionStrategy, OnInit} from 'angular2/core';
 import {Registrant}        from './registrant';
 import {RegistrantService} from './registrant.service';
-import {FilterRegistrantsPipe} from './filter.pipe';
-
+import {FilterRegistrantsPipe} from './filter-registrants.pipe';
+import {FilterRegistrantsCountPipe} from './filter-registrants-count.pipe';
+import {ListCountPipe} from './list-count.pipe';
 
 @Component({
   selector: 'registrant-list',
   templateUrl: 'app/registrant-list.component.html',
-  pipes: [FilterRegistrantsPipe]
+  pipes: [FilterRegistrantsPipe, FilterRegistrantsCountPipe, ListCountPipe]
 })
 export class RegistrantListComponent implements OnInit {
 

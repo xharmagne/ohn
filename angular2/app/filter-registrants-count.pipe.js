@@ -11,20 +11,20 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var FilterRegistrantsPipe;
+    var FilterRegistrantsCountPipe;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            FilterRegistrantsPipe = (function () {
-                function FilterRegistrantsPipe() {
+            FilterRegistrantsCountPipe = (function () {
+                function FilterRegistrantsCountPipe() {
                 }
-                FilterRegistrantsPipe.prototype.transform = function (value, _a) {
+                FilterRegistrantsCountPipe.prototype.transform = function (value, _a) {
                     var gamertag = _a[0], region = _a[1], passType = _a[2], game = _a[3];
                     if (!value) {
-                        return value;
+                        return 0;
                     }
                     var filtered = value.filter(function (registrant) {
                         return (!gamertag || registrant.gamertag.toLowerCase().includes(gamertag.toLowerCase())) &&
@@ -36,19 +36,19 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                                     (game == "MK" && registrant.games.mkRegistered) ||
                                     (game == "A1" && registrant.games.a1Registered)));
                     });
-                    return filtered;
+                    return filtered.length;
                 };
-                FilterRegistrantsPipe = __decorate([
+                FilterRegistrantsCountPipe = __decorate([
                     core_1.Pipe({
-                        name: 'filterRegistrants',
+                        name: 'filterRegistrantsCount',
                         pure: false
                     }), 
                     __metadata('design:paramtypes', [])
-                ], FilterRegistrantsPipe);
-                return FilterRegistrantsPipe;
+                ], FilterRegistrantsCountPipe);
+                return FilterRegistrantsCountPipe;
             }());
-            exports_1("FilterRegistrantsPipe", FilterRegistrantsPipe);
+            exports_1("FilterRegistrantsCountPipe", FilterRegistrantsCountPipe);
         }
     }
 });
-//# sourceMappingURL=filter.pipe.js.map
+//# sourceMappingURL=filter-registrants-count.pipe.js.map

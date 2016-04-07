@@ -80,6 +80,9 @@
                   </div>
                 </td>
             </tr>
+            <tr class="registrants-sum grand-total">
+                <td colspan="4" class="text-center"><span style="font-weight:bold">{{registrants | filterRegistrantsCount:filterGamertag:filterRegion:filterPassType:filterGame}}</span> of <span style="font-weight:bold">{{registrants | listCount}}</span> registrants</td>
+              </tr>
         </tbody>
 
 
